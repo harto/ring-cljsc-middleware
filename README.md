@@ -9,7 +9,13 @@ There are two functions in the `ring.middleware.cljsc` namespace:
   * `wrap-encoding` adds a UTF-8 encoding header to all JavaScript
     file responses.
 
-Usage:
+Leiningen dependency
+---
+
+    [ring-cljsc-middleware "0.0.1"]
+
+Usage
+---
 
     (ns foo
       (:require [ring.middleware.cljsc :as cljsc])
