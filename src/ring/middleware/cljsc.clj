@@ -19,7 +19,7 @@
        (let [newest (apply max 0 (map #(.lastModified %) files))]
          (when (> newest (or @last-compile 0))
            (log/info "recompiling")
-           (reset! last-compile ts)
+           (reset! last-compile newest)
            (cljsc/build src-dir opts)))
        (handler request))))
 
