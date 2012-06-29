@@ -22,14 +22,3 @@
            (reset! last-compile newest)
            (cljsc/build src-dir opts)))
        (handler request))))
-
-(defn wrap-encoding
-  "Provides the correct character encoding header for compiled JavaScript
-   files."
-  [handler]
-  (fn [request]
-    (let [response (handler request)]
-      (if (.endsWith (:uri request) ".js")
-        (header response "Content-Type" "text/javascript; charset=utf-8")
-        response))))
-
